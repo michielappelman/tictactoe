@@ -15,6 +15,8 @@ class TicTacToe:
             self.state = "." * 9
         elif not isinstance(state, str) or len(state) != 9:
             raise ValueError
+        elif len(state.translate(str.maketrans("", "", "XO."))) > 0:
+            raise ValueError
         else:
             self.state = state
 
@@ -22,7 +24,7 @@ class TicTacToe:
         return "\n-----\n".join("|".join(self.state[start:start + 3]) for start in range(0, 9, 3))
 
     def __repr__(self):
-        return f"{type(self).__name__}('{self.state}')"
+        return "{}('{}')".format(type(self).__name__, self.state)
 
     def _split_state(self):
         return ["".join(self.state[start:start + 3]) for start in range(0, 9, 3)]
