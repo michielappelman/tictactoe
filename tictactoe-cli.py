@@ -43,13 +43,13 @@ def main(stdscr):
         elif curses.KEY_DOWN <= char <= curses.KEY_RIGHT:
             cur_y, cur_x = win.getyx()
             if char == curses.KEY_UP and cur_y-2 >= 0:
-                    win.move(cur_y-2, cur_x)
+                win.move(cur_y-2, cur_x)
             elif char == curses.KEY_DOWN and cur_y+2 < 5:
-                    win.move(cur_y+2, cur_x)
+                win.move(cur_y+2, cur_x)
             elif char == curses.KEY_LEFT and cur_x-2 >= 0:
-                    win.move(cur_y, cur_x-2)
+                win.move(cur_y, cur_x-2)
             elif char == curses.KEY_RIGHT and cur_x+2 < 5:
-                    win.move(cur_y, cur_x+2)
+                win.move(cur_y, cur_x+2)
         if ttt.won:
             win.addstr(6, 0, "Winner is {}!".format(ttt.winner))
             win.addstr(7, 1, " ('q' to quit)")
