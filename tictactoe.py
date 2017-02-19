@@ -62,7 +62,7 @@ class TicTacToe:
     def move(self, position):
         if self.won:
             return self
-        if self.state[position] != ".":
+        if not 0 <= position < 9 or self.state[position] != ".":
             raise InvalidMove(position)
         if self.state.count(".") % 2 == 0:
             turn = "O"
